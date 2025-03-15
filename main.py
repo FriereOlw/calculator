@@ -51,7 +51,7 @@ class Calculator:
         if (n == "C"):
             self.clear()
         elif (n == "="):
-            res = eval(self.numScreen.get())
+            res = self.evaluate(self.numScreen.get())
             self.clear()
             self.numScreen.insert(tk.END, str(res))
         else:
@@ -59,6 +59,9 @@ class Calculator:
         
     def clear(self):
         self.numScreen.delete(0, tk.END)
+
+    def evaluate(num):
+        pass ##TO DO
 
 
 win = tk.Tk()
