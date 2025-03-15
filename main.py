@@ -1,5 +1,6 @@
 import tkinter as tk
 
+
 window = tk.Tk()
 window.title("Calculator")
 window.geometry("300x400")
@@ -41,15 +42,22 @@ lastOper = ""
 def operation(n):
     prevNumber.set(number.get())
     global lastOper
-    lastOper = "+"dir
+    lastOper = n
     number.set("")
 
 
 def calculate():
     if lastOper == "+":
-        number.set(int(prevNumber.get())+int(number.get()))
-
-
+        number.set(int(prevNumber.get()) + int(number.get()))
+    elif lastOper == "-":
+        number.set(int(prevNumber.get()) - int(number.get()))
+    elif lastOper == "x":
+        number.set(int(prevNumber.get()) * int(number.get()))
+    elif lastOper == "/":
+        if (int(number.get()) == 0):
+            number.set("UNDEFINED")
+            return
+        number.set(int(prevNumber.get())/int(number.get()))
 
 
 def buttons():
